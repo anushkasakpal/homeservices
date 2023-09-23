@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Show</title>
+{% endblock %}
+
+
+
+{% block content %}
+<br><br><br>
+<button class="btn btn-outline-success col-3"><a href="{% url 'home' %}">HOME</a></button>
+&nbsp<button class="btn btn-outline-success col-3"><a href="{% url 'addservicemen' %}">ADD SERVICEMEN</a></button>
+&nbsp<button class="btn btn-outline-success col-3"><a href="{% url 'showservicemen' %}">SHOW ALL SERVICEMEN</a></button>
+&nbsp<button class="btn btn-outline-danger col-2"><a href="{% url 'adminlogout' %}">LOGOUT</a></button>
+<br><br><br>
+<h1 align="center">All Booking List</h1>
+          <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+              <th>FIRST NAME</th>
+              <th>LAST NAME</th>
+              <th>PHONE</th>
+              <th>EMAIL</th>
+              <th>ADDRESS</th>
+              <th>SERVICES</th>
+              <th>SERVICE TIME</th>
+              <th>SERVICE DATE</th>
+              <th>STATE</th>
+              <th>PIN CODE</th>
+              <th>ACTION</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for record in data %}
+            <tr>
+              <td>{{record.fname}}</td>
+              <td>{{record.lname}}</td>
+              <td>{{record.phone}}</td>
+              <td>{{record.email}}</td>
+              <td>{{record.address}}</td>
+              <td>{{record.services}}</td>
+              <td>{{record.serviceTime}}</td>
+              <td>{{record.serviceDate}}</td>
+              <td>{{record.state}}</td>
+              <td>{{record.pincode}}</td>
+              <td>
+                <button class="btn btn-outline-warning"><a href="{% url 'update' record.id %}">UPDATE</a></button>
+              &nbsp<button class="btn btn-outline-danger"><a href="{% url 'delete' record.id %}">DELETE</a></button>
+              </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+          </table>
+{% endblock %}

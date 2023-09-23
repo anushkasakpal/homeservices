@@ -1,0 +1,200 @@
+<head>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+.wrapper{
+    width: 1170px;
+    margin: auto;
+}
+header{
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(https://th.bing.com/th/id/OIP.EKthmfHZZtKevWUI_8qaSgHaEI?pid=ImgDet&rs=1);
+    height: 100vh;
+    -webkit-background-size: cover;
+    background-size: 1500px 700px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
+.nav-area{
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+}
+.nav-area li{
+    display: inline-block;
+}
+.nav-area li a {
+color: #fff;
+text-decoration: none;
+padding: 5px 20px;
+font-family: poppins;
+font-size: 16px;
+text-transform: uppercase;
+}
+.nav-area li a:hover{
+    background: #fff;
+    color: #333;
+}
+.logo{
+    float: left;
+}
+.logo img{
+    width: 100%;
+    padding: 15px 0;
+}
+.welcome-text{
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    margin: 20% 30%;
+    text-align: center;
+}
+.welcome-text h1{
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 60px;
+}
+.label {
+    color: white;
+}
+.welcome-text a{
+    border: 1px solid #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 20px;
+    display: inline-block;
+    color: #fff;
+}
+.welcome-text a:hover{
+    background: #fff;
+    color: #333;
+}
+
+/*resposive*/
+
+@media (max-width:600px){
+    .wrapper {
+width: 100%;
+}
+.logo {
+float: none;
+width: 50%;
+text-align: center;
+margin: auto;
+}
+img {
+width: ;
+}
+.nav-area {
+float: none;
+margin-top: 0;
+}
+    .nav-area li a {
+padding: 5px;
+font-size: 11px;
+}
+.nav-area {
+text-align: center;
+}
+    .welcome-text {
+width: 100%;
+height: auto;
+margin: 30% 0;
+}
+    .welcome-text h1 {
+font-size: 30px;
+}
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+  </style>
+</head>
+<header>
+    <div class="wrapper">
+<ul class="nav-area">
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'aboutus' %}">About</a></li>
+    <li><a href="{% url 'adminlog' %}">ADMIN</a></li>
+    <div class="dropdown">
+  <button class="dropbtn">Services</button>
+  <div class="dropdown-content">
+    <a href="{% url 'showelectrician' %}" id="1">Electrician</a>
+    <a href="{% url 'showplumber' %}">Plumber</a>
+    <a href="{% url 'showcleaner' %}">Cleaner</a>
+      <a href="{% url 'showcarpenter' %}">Carpenter</a>
+      <a href="{% url 'showpainter' %}">Painter</a>
+      <a href="{% url 'showwelder' %}">Welder</a>
+  </div>
+</div>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'logout_url' %}">Logout</a></li>
+    {% else %}
+  <li><a href="{% url 'register_url' %}">Signup</a></li>
+<li><a href="{% url 'log_url' %}">Login</a></li>
+    {% endif %}
+</ul>
+</div>
+<div class="welcome-text">
+        <h1>
+Welcome to Home Services</h1>
+<a href="{% url 'contactus' %}">Contact US</a>
+    </div>
+</header>
+
+

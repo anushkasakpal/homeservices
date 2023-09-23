@@ -1,0 +1,29 @@
+<html>
+<head>
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Admin sign in form</title>
+{% endblock %}
+{% block content %}
+<div class="container jumbotron">
+    <form method="post">
+      {% csrf_token %}
+        <h1 align="center"><u><font face="Times New Roman">Admin Login</font></u></h1>
+      <label for="un"><b>ENTER USERNAME:</b></label>
+      <input type="text" id="un" name="un" autocomplete="off" class="form-control">
+      <br>
+      <br>
+      <label for="pw"><b>ENTER PASSWORD:</b></label>
+      <input type="password" id="pw" name="pw" class="form-control">
+      <br><br>
+      <input type="submit" value="LOGIN" class="btn btn-outline-success col-6">
+      <input type="reset" value="RESET" class="btn btn-outline-warning col-6 float-right"><br><br>
+        <h3>don't have an account?</h3>
+       <button class="btn btn-outline-warning"><a href="{% url 'adminregister' %}">SIGNUP</a></button>
+
+
+    </form>
+</div>
+{% endblock %}
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>sign in form</title>
+{% endblock %}
+<style>
+        * {
+  margin: 0
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #6699cc;
+}
+
+.container {
+  color: black;
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: sans-serif;
+  background-color: #154a68;
+  padding: 20px;
+}
+
+.input {
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.registration-form input:focus,
+.registration-form textarea:focus {
+  box-shadow: 3px 3px 10px rgb(228, 228, 228), -3px -3px 10px rgb(224, 224, 224);
+}
+
+   .submit {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 20px;
+  color: rgb(44, 44, 44);
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+   .submit:hover {
+  box-shadow: 3px 3px 6px rgb(255, 214, 176);
+}
+    </style>
+</head>
+{% block content %}
+<div class="container jumbotron">
+    <form method="post">
+        <h1 align="center"><u><font face="Times New Roman">Customer Login</font></u></h1><br><br><br>
+      {% csrf_token %}
+      <label for="un"><b>ENTER USERNAME:</b></label>
+      <input type="text" id="un" name="un" autocomplete="off" class="form-control">
+      <br>
+      <br>
+      <label for="pw"><b>ENTER PASSWORD:</b></label>
+      <input type="password" id="pw" name="pw" class="form-control">
+      <br><br>
+      <input type="submit" value="LOGIN" class="btn btn-outline-success col-6">
+      <input type="reset" value="RESET" class="btn btn-outline-warning col-6 float-right">
+        <h3>don't have an account?</h3>
+       <button class="btn btn-outline-success"><a href="{% url 'register_url' %}">SIGNUP</a></button>
+
+
+    </form>
+</div>
+{% endblock %}
+</html>

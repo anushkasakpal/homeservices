@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    header{
+    background: url(https://i.pinimg.com/originals/2e/d8/90/2ed890036a6930d4f8584db97be90f89.gif);
+    height: 100vh;
+    -webkit-background-size: cover;
+    background-size: 1500px 750px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
+    </style>
+</head>
+<header>
+<!--<h1>Your Appointment Booked successfully</h1>-->
+<button class="btn btn-outline-success col-3"><a href="{% url 'home' %}">HOME</a></button>
+<button class="btn btn-outline-warning"><a href="{% url 'logout_url' %}">LOGOUT</a></button>
+</header>
+</html>
